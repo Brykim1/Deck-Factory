@@ -1,0 +1,11 @@
+<div class="container">
+	<div style="margin-top: 20px;margin-bottom: 20px;">
+		<div class="input-group col-lg-4">
+			<input type="text" class="form-control" placeholder="Search Card Base" aria-describedby="basic-addon1"
+			ng-model="query">
+		</div>
+	</div>
+	<div>
+		<img style="margin: 5px; margin-left: 0px;" ng-repeat="card in cards | filter:query" ng-src="https://image.deckbrew.com/mtg/multiverseid/{{card.multiverseid}}.jpg">
+	</div>
+</div>

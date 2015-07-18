@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="mtgApp">
+	<head>
+		<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.deep_orange-blue.min.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="styles/bootstrap.min.css">
+		<link rel="stylesheet" href="styles/css/in-development-card.css">
+		<link rel="stylesheet" href="styles/css/background.css">		
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<span class="mdl-layout-title">MTG Deck Builder</span>
+					<div class="mdl-layout-spacer"></div>
+				</div>
+			</header>
+			<div class="mdl-layout__drawer">
+				<span class="mdl-layout-title">MTG Deck Builder</span>
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link" href="#/deck-builder">Build A Deck</a>
+					<a class="mdl-navigation__link" href="#/play-test">Play Test</a>
+				</nav>
+			</div>
+			<main class="mdl-layout__content">
+				<div class="page-content">
+					<!-- Change pages in here -->
+					<div ng-view></div>
+				</div>
+			</main>
+		</div>
+
+		<!-- Third party -->
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.min.js"></script>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+
+		<!-- Modules -->
+		<script src="app/Module/mtgModule.js"></script>
+
+		<!-- Controllers -->
+		<script src="app/Controller/mainCtrl.js"></script>
+		<script src="app/Controller/deckBuilderCtrl.js"></script>
+		<script src="app/Controller/playTestCtrl.js"></script>
+	</body>
+</html>
