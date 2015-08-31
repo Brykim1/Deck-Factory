@@ -1,4 +1,4 @@
-var mtgApp = angular.module('mtgApp', ['ngRoute'])
+var mtgApp = angular.module('mtgApp', ['ngRoute','ngAnimate', 'ui.bootstrap'])
 
 mtgApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider

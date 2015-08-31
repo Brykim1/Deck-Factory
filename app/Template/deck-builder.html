@@ -1,11 +1,53 @@
-<div class="container">
-	<div style="margin-top: 20px;margin-bottom: 20px;">
-		<div class="input-group col-lg-4">
-			<input type="text" class="form-control" placeholder="Search Card Base" aria-describedby="basic-addon1"
-			ng-model="query">
+<div class="container-fluid">
+	<!-- Create a section on the left side for card search -->
+	<div class="col-lg-4" style="background-color: #181818; height: 1000px">
+		<div style="margin-top: 20px; margin-bottom: 20px;">
+			<div class="input-group col-lg-10">
+				<input type="text" ng-model="asyncSelected"  class="form-control"  placeholder="Search Card Base" 
+				aria-describedby="basic-addon1"
+				typeahead="card as card.name for card in allCards | filter: $viewValue | limitTo: 6" 
+				typeahead-loading="loadingCards" 
+				typeahead-no-results="noResults"
+				typeahead-on-select="onSelect($item, $model, $label)"
+				typeahead-min-length="2"
+				typeahead-select-on-exact="true"
+				typeahead-select-on-blur="true">
+				<i ng-show="loadingCards" class="glyphicon glyphicon-refresh"></i>
+			    <div ng-show="noResults" style="color:white">
+			      <i class="glyphicon glyphicon-remove"></i> No Results Found
+			    </div>
+			</div>
+		</div>
+		<div class="col-lg-12">
+			<img style="margin: 5px; margin-left: 0px; float: left" ng-src="https://image.deckbrew.com/mtg/multiverseid/{{cardMultiverseid}}.jpg">
+			<div style="margin-top: 50px;">
+				<button  style="background-color: #666666; color:white; margin-left: 5px"class="mdl-button mdl-js-button" ng-click="addCard()">
+				  Add
+				</button>
+				<button  style="background-color: #666666; color:white; margin-top: 5px; margin-left: 5px"class="mdl-button mdl-js-button" ng-click="removeCard()">
+				  Remove
+				</button>
+			</div>
+		</div>  
+		<div class="col-lg-12">
+			<label style="color: #FF6600; margin-top: 5px">Name:</label>
+			<p style="color:white; margin-bottom:0px">{{cardName}}</p>
+			<label style="color: #FF6600">Type:</label>
+			<p style="color:white; margin-bottom:0px">{{cardType}}</p>
+			<label style="color: #FF6600">Converted Mana Cost:</label>
+			<p style="color:white; margin-bottom:0px">{{cardManaCost}}</p>
+			<label style="color: #FF6600">Rarity:</label>
+			<p style="color:white; margin-bottom:0px">{{cardRarity}}</p>
+			<label style="color: #FF6600">Text:</label>
+			<p style="color:white; margin-bottom:0px">{{cardText}}</p>
 		</div>
 	</div>
-	<div>
-		<img style="margin: 5px; margin-left: 0px;" ng-repeat="card in cards | filter:query" ng-src="https://image.deckbrew.com/mtg/multiverseid/{{card.multiverseid}}.jpg">
+	<div class="col-lg-8">
+		<!-- Reserve section for addition nav or filter buttons-->
+		<div class="row"></div>
+		<div>
+			<p style="color: white" ng-repeat="selectedcard in selectedCards">{{selectedcard}}</p>
+		</div>
 	</div>
+
 </div>
